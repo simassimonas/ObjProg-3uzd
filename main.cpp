@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <time.h>
 #include <iomanip>
+#include <fstream>
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector;
 
@@ -17,6 +18,22 @@ vector<int> nd;
 int egz;
 double galutinis;
 };
+
+int dwadw(){
+    int input;
+    std::ifstream fin ("duom.txt");
+    fin >> input;
+    if(fin.fail()){
+        cout << "Blogas failas" << endl;
+        exit (EXIT_FAILURE);
+        return 0;
+    }
+    //if(input>10){
+      //  cout << "Pazymys negali but daugiau nei 10" << endl;
+       // return 0;
+    //}
+    else return input;
+}
 
 int tikrinimas(){
     int input;
@@ -119,6 +136,49 @@ void isvedimas(int n, stud *studentai, int ar){
 
 int main()
 {
+    cout << "Jei norite duomenis nuskaityti is failo, iveskite 1, jei norite juos ivesti pats, iveskite 0" << endl;
+    int arDuom=2;
+    tikrinimasBinarinio(arDuom);
+    if(arDuom){
+        cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
+        int ar=2;
+        //tikrina ar ivedamas geras skaicius
+        tikrinimasBinarinio(ar);
+
+        std::ifstream fin ("duom.txt");
+        int n; //kiek is viso studentu
+        int m; //kiek is viso pazymiu
+        fin >> n;
+        if(fin.fail()){
+            cout << "Blogas failas" << endl;
+            exit (EXIT_FAILURE);
+        }
+        fin >> m;
+        if(fin.fail()){
+            cout << "Blogas failas" << endl;
+            exit (EXIT_FAILURE);
+        }
+        stud studentai[n];
+        int temp;
+        for(int i=0; i<n; i++){
+            fin >> studentai[i].vardas >> studentai[i].pavarde;
+            for(int j=0; j<m+1; j++){
+                fin >> temp;
+                if(fin.fail()){
+                    cout << "Blogas failas" << endl;
+                    exit (EXIT_FAILURE);
+                }
+                else{
+                if(j==m) studentai[i].egz = temp;
+                else studentai[i].nd.push_back(temp);
+                }
+            }
+        if(ar==1) studentai[i].galutinis=galVid(i, studentai);
+        else studentai[i].galutinis=galMed(i, studentai);
+        }
+        isvedimas(n, studentai, ar);
+    }
+    else{
     cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
     int ar=2;
     //tikrina ar ivedamas geras skaicius
@@ -187,6 +247,7 @@ int main()
     }
 
     isvedimas(n, studentai, ar);
+    }
 
     return 0;
 }
