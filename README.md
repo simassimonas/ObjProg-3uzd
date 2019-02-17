@@ -14,7 +14,7 @@ Sudarytu failu istrynimas:
 
 ## Versiju istorija
 
-### [v0.1]()
+### [v0.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.1)
 **Pridėta**
 - Pirmine programos versija
 - .gitignore failas
