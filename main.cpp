@@ -1,4 +1,4 @@
-///Simono Šaltenio 2gr. 2pogr. v0.1
+///Simono Å altenio 2gr. 2pogr. v0.2
 #include <iostream>
 #include <string>
 #include <vector>
@@ -18,22 +18,6 @@ vector<int> nd;
 int egz;
 double galutinis;
 };
-
-int dwadw(){
-    int input;
-    std::ifstream fin ("duom.txt");
-    fin >> input;
-    if(fin.fail()){
-        cout << "Blogas failas" << endl;
-        exit (EXIT_FAILURE);
-        return 0;
-    }
-    //if(input>10){
-      //  cout << "Pazymys negali but daugiau nei 10" << endl;
-       // return 0;
-    //}
-    else return input;
-}
 
 int tikrinimas(){
     int input;
