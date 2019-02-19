@@ -1,4 +1,4 @@
-///Simono Å altenio 2gr. 2pogr. v0.2
+//Simono Šaltenio 2gr. 2pogr. v0.1.1 versija padaryta naudojant masyvus vietoj vectoriu
 #include <iostream>
 #include <string>
 #include <vector>
@@ -7,60 +7,71 @@
 #include <cstdlib>
 #include <time.h>
 #include <iomanip>
-#include <fstream>
+#include <algorithm>
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector;
 
 struct stud{
 string vardas;
 string pavarde;
-vector<int> nd;
+int *nd;
+int ndKiek;
 int egz;
 double galutinis;
 };
 
-int tikrinimas(){
-    int input;
-    cin >> input;
-    if(cin.fail()){
-        cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        cout << "Ivedete ne int'a" << endl;
-        return 0;
-    }
-    if(input>10){
-        cout << "Pazymys negali but daugiau nei 10" << endl;
-        return 0;
-    }
-    else return input;
-}
-
-void ivedimas(int i, stud *studentai){
+void ivedimas(int x, stud *studentai){
     int input=0;
+    int kiek=0;
+    int *temp;
+    int *pagr;
     while(input>=0){
-        input = tikrinimas();
-        if(input>0){
-            studentai[i].nd.push_back(input);
+        cin >> input;
+        // tikrinu, ar ivestas skaicius yra int'as, viskas veikai isskyrus atveji,
+        // kai ivedamas float'as, tada ismeta errora, taciau input'a nuskaito ir suapvalina
+        // per pratybas parodziau destytojui, bet ir jam nepavyko issiaiskinti kodel taip vyksta
+        if(cin.fail()){
+            cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Ivedete ne int'a" << endl;
+            input=0;
+        }
+        else if(input>10) cout << "Pazymys negali but daugiau nei 10" << endl;
+        else{
+            if(input>=0){
+                kiek++;
+                temp = new int[kiek];
+                for(int i=0; i<kiek; i++){
+                    if(i==kiek-1) temp[i]=input;
+                    else temp[i]=pagr[i];
+                }
+                delete[] pagr;
+                pagr=temp;
+                studentai[x].nd=pagr;
+                studentai[x].ndKiek=kiek;
+            }
         }
     }
 }
 
 void generavimas(int x, stud *studentai, int kiek){
     srand ( time ( NULL ));
+    studentai[x].nd = new int[kiek];
+    studentai[x].ndKiek = kiek;
     for(int i=0; i<kiek; i++){
-        studentai[x].nd.push_back((int)(1 + ( double ) rand ()/ RAND_MAX * (11 - 1 )));
+        studentai[x].nd[i] = (int)(1 + ( double ) rand ()/ RAND_MAX * (11 - 1 ));
     }
 }
 
 double galVid(int i, stud *studentai){
     double vid;
-    if(studentai[i].nd.size()==0) vid=0;
+    if(studentai[i].ndKiek==0) vid=0;
     else{
         int suma=0;
-        for(int a: studentai[i].nd){
-            suma+=a;
+        for(int j=0; j<studentai[i].ndKiek; j++){
+            suma+=studentai[i].nd[j];
         }
-        vid=(double)suma/studentai[i].nd.size();
+        vid=(double)suma/studentai[i].ndKiek;
     }
     double gal;
     gal = 0.4 * vid + 0.6 * (double)studentai[i].egz;
@@ -69,13 +80,11 @@ double galVid(int i, stud *studentai){
 
 double galMed(int i, stud *studentai){
     double mediana;
-    //jeigu namu darbu neivesta, tai mediana lygi 0
-    if(studentai[i].nd.size()==0) mediana=0;
+    if(studentai[i].ndKiek==0) mediana=0;
     else{
-        //surusiuoja nd vectoriu
-        sort(studentai[i].nd.begin(), studentai[i].nd.end());
-        if(studentai[i].nd.size()%2!=0) mediana=studentai[i].nd.at(studentai[i].nd.size()/2);
-        else mediana=(double)((studentai[i].nd.at(studentai[i].nd.size()/2)+studentai[i].nd.at((studentai[i].nd.size()/2-1))))/2;
+        std::sort(studentai[i].nd, studentai[i].nd + studentai[i].ndKiek);
+        if(studentai[i].ndKiek%2!=0) mediana=studentai[i].nd[studentai[i].ndKiek/2];
+        else mediana=(double)((studentai[i].nd[studentai[i].ndKiek/2]+studentai[i].nd[studentai[i].ndKiek/2-1]))/2;
     }
     double gal;
     gal = 0.4 * mediana + 0.6 * (double)studentai[i].egz;
@@ -83,13 +92,12 @@ double galMed(int i, stud *studentai){
 }
 
 void tikrinimasBinarinio(int &sk){
-    cin.clear();
     while(1){
         cin >> sk;
         if(cin.fail()){
             cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout << "Ivedete ne int'a tikrinimas inarinio" << endl;
+            cout << "Ivedete ne int'a" << endl;
             sk = 2;
         }
         if(sk==1) break;
@@ -116,71 +124,16 @@ void isvedimas(int n, stud *studentai, int ar){
         cout << "-";
     }
     cout << endl;
-    //rusiavimas pagal vardus
-    //i string vectoriu v idedu visus studentu vardus
-    vector<string> v;
     for(int i=0; i<n; i++){
-        v.push_back(studentai[i].vardas);
-    }
-    //surusiuoja abeceles tvarka
-    sort(v.begin(),v.end());
-
-    for(int i=0; i<n; i++){
-        for(int j=0; j<n; j++){
-            if(v.at(i)==studentai[j].vardas) cout << std::left << std::setw(didVard+3) << studentai[j].vardas << std::left << std::setw(didPav+3) << studentai[j].pavarde << std::left << std::setw(3) << std::fixed << std::setprecision(2) << studentai[j].galutinis << endl;
-        }
+        cout << std::left << std::setw(didVard+3) << studentai[i].vardas << std::left << std::setw(didPav+3) << studentai[i].pavarde << std::left << std::setw(3) << std::fixed << std::setprecision(2) << studentai[i].galutinis << endl;
     }
 }
 
 int main()
 {
-    cout << "Jei norite duomenis nuskaityti is failo, iveskite 1, jei norite juos ivesti pats, iveskite 0" << endl;
-    int arDuom=2;
-    tikrinimasBinarinio(arDuom);
-    if(arDuom){
-        cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
-        int ar=2;
-        //tikrina ar ivedamas geras skaicius
-        tikrinimasBinarinio(ar);
-
-        std::ifstream fin ("duom.txt");
-        int n; //kiek is viso studentu
-        int m; //kiek is viso pazymiu
-        fin >> n;
-        if(fin.fail()){
-            cout << "Blogas failas" << endl;
-            exit (EXIT_FAILURE);
-        }
-        fin >> m;
-        if(fin.fail()){
-            cout << "Blogas failas" << endl;
-            exit (EXIT_FAILURE);
-        }
-        stud studentai[n];
-        int temp;
-        for(int i=0; i<n; i++){
-            fin >> studentai[i].vardas >> studentai[i].pavarde;
-            for(int j=0; j<m+1; j++){
-                fin >> temp;
-                if(fin.fail()){
-                    cout << "Blogas failas" << endl;
-                    exit (EXIT_FAILURE);
-                }
-                else{
-                if(j==m) studentai[i].egz = temp;
-                else studentai[i].nd.push_back(temp);
-                }
-            }
-        if(ar==1) studentai[i].galutinis=galVid(i, studentai);
-        else studentai[i].galutinis=galMed(i, studentai);
-        }
-        isvedimas(n, studentai, ar);
-    }
-    else{
     cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
     int ar=2;
     //tikrina ar ivedamas geras skaicius
-    cin.clear();
     tikrinimasBinarinio(ar);
 
     cout << "Kiek studentu bus is viso:" << endl;
@@ -191,7 +144,7 @@ int main()
         if(cin.fail()){
             cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout << "Ivedete ne int'a grdgdg" << endl;
+            cout << "Ivedete ne int'a" << endl;
         }
         else if (n<=0) cout << "Studentu turi buti daugiau nei 0" << endl;
         else break;
@@ -246,7 +199,6 @@ int main()
     }
 
     isvedimas(n, studentai, ar);
-    }
 
     return 0;
 }
