@@ -1,6 +1,5 @@
-5 3
-vardas4 vardas2 3 6 8 3
-vardas3 vardas2 5 7 3 1
-vardas1 vardas2 1 6 10 6
-vardas5 vardas4 6 4 1 10
+vardas4 vardas2 3 6 8 3 6 
+vardas3 vardas2 5 7 1 4
+vardas1 vardas2 1 6 10 6 2 6 4 
+vardas5 vardas4 6 4 5
 vardas2 vardas5 7 4 2 7
