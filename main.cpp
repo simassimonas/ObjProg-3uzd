@@ -1,4 +1,4 @@
-///Simono Šaltenio 2gr. 2pogr. v0.2
+///Simono Šaltenio 2gr. 2pogr. v0.3
 #include "header.h"
 
 int main()
