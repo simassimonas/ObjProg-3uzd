@@ -30,6 +30,11 @@ int x;
     cout << x << endl;
     }
 ```
+
+### [v0.1.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.1.1)
+**Pridėta**
+- cmasyvas.cpp file'as, kuriame n.d rezultatai saugomi ne vectoriuje, o masyve
+
 ### [v0.2](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.2)
 **Pridėta**
 - Antrine programos versija
@@ -53,4 +58,19 @@ vardas5 vardas5 7 4 2 7
 
 Deja, laiku nespejau padaryti vardu rusiavimo ir parasyti tvarkingu komentaru, bet tai padarysiu su kitu commitu arba blogiausiu atveju kitu releas'u.
 
+### [v0.2.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.2.1)
+**Pridėta**
+- Pridėtas studentų rūšiavimas pagal vardus
 
+**Papildyta**
+- Patobulintas nuskaitymas is failo
+
+Nebereikia pirmu dvieju skaiciu, nurodanciu, kiek bus studentu ir kiek n.d pazymiu jie tures. Dabar kiekvienas studentas gali tureti skirtinga n.d pazymiu kieki, o paskutinis skaicius nurodo egzamino rezultata
+
+```shell
+vardas4 vardas 3 6 8 3 6 
+vardas3 vardas 5 7 1 4
+vardas1 vardas 1 6 10 6 2 6 4 
+vardas5 vardas 6 4 5
+vardas2 vardas 7 4 2 7
+```
