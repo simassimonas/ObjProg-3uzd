@@ -93,4 +93,17 @@ vardas2 vardas 7 4 2 7
 **Papildyta**
 - updated makefile
 
+### [v0.4](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.4)
+**Pridėta**
+- Ketvirta programos versija
+- galimybe generuoti atsitiktinius studentu sarasu failus
+- studentu rusiavimas i dvi grupes ir isvedimas i skirtingus failus (vargsiukai ir kietakai)
+- programos veikimo laiko matavimas
 
+**Programos veikimo laiko testavimas generuojant skirtingo dydzio duomenu failus**
+Su 10 irasu: 3ms
+Su 100 irasu: 10ms
+Su 1000 irasu: 42ms
+Su 10000 irasu: 308ms 
+Su 100000 irasu: 2930ms
+Su 1000000 irasu: 30431ms
