@@ -112,3 +112,60 @@ void isvedimas(vector<stud> &studentai, int ar){
         }
     }
 }
+
+void tikrinimasDuom(int &sk){
+    cin.clear();
+    while(1){
+        cin >> sk;
+        if(cin.fail()){
+            cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Ivedete ne int'a tikrinimas inarinio" << endl;
+            sk = 3;
+        }
+        if(sk==1) break;
+        else if(sk==0) break;
+        else if(sk==2) break;
+        else cout << "Turite ivesti 0 , 1 arba 2" << endl;
+    }
+}
+
+void generavimasFailo(int kiekIrasu){
+    srand ( time ( NULL ));
+    std::ofstream fout ("generatedfile.txt");
+    for(int i=0; i<kiekIrasu; i++){
+        fout << "Vardas" << i+1 << " " << "Pavarde" << i+1 << " ";
+        for(int j=0; j<11; j++){
+            fout << (int)(1 + ( double ) rand ()/ RAND_MAX * (11 - 1 )) << " ";
+        }
+        fout << endl;
+    }
+
+}
+
+void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, vector<stud> &kietakai, int kiekIrasu){
+    for(int i=0; i<kiekIrasu; i++){
+        if(studentai[i].galutinis>=5.0) kietakai.push_back(studentai[i]);
+        else vargsiukai.push_back(studentai[i]);
+    }
+}
+
+void surusiuotuIsvedimas(vector<stud> &vargsiukai, vector<stud> &kietakai){
+    std::ofstream fout ("vargsiukai.txt");
+    for(int i=0; i<vargsiukai.size(); i++){
+        fout << vargsiukai[i].vardas << " " << vargsiukai[i].pavarde << " ";
+        for(int j=0; j<vargsiukai[i].nd.size(); j++){
+            fout << vargsiukai[i].nd[j] << " ";
+        }
+        fout << "Egz.: " << vargsiukai[i].egz << " Galutinis: " << vargsiukai[i].galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for(int i=0; i<kietakai.size(); i++){
+        ffout << kietakai[i].vardas << " " << kietakai[i].pavarde << " ";
+        for(int j=0; j<kietakai[i].nd.size(); j++){
+            ffout << kietakai[i].nd[j] << " ";
+        }
+        ffout << "Egz.: " << kietakai[i].egz << " Galutinis: " << kietakai[i].galutinis << endl;
+    }
+}

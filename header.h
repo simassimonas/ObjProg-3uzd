@@ -10,6 +10,7 @@
 #include <time.h>
 #include <iomanip>
 #include <fstream>
+#include <chrono>
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector;
 
@@ -34,5 +35,13 @@ double galMed(stud &);
 void tikrinimasBinarinio(int &);
 
 void isvedimas(vector<stud> &, int);
+
+void surusiuotuIsvedimas(vector<stud> &, vector<stud> &);
+
+void rusiavimasStudentu(vector<stud> &, vector<stud> &, vector<stud> &, int);
+
+void generavimasFailo(int);
+
+void tikrinimasDuom(int &);
 
 #endif // HEADER_H_INCLUDED

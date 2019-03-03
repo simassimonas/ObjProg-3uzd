@@ -1,13 +1,17 @@
-///Simono Šaltenio 2gr. 2pogr. v0.2
+///Simono Šaltenio 2gr. 2pogr. v0.4
 #include "header.h"
+
+
 
 int main()
 {
-    cout << "Jei norite duomenis nuskaityti is failo, iveskite 1, jei norite juos ivesti pats, iveskite 0" << endl;
-    int arDuom=2;
-    tikrinimasBinarinio(arDuom);
+    cout << "Jei norite duomenis ivesti pats, iveskite 0" << endl;
+    cout << "Jei norite duomenis nuskaityti is failo, iveskite 1" << endl;
+    cout << "Jei norite sukurti random duomenu faila, iveskite 2" << endl;
+    int arDuom=3;
+    tikrinimasDuom(arDuom);
 
-    if(arDuom){
+    if(arDuom==1){
         cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
         int ar=2;
         //tikrina ar ivedamas geras skaicius
@@ -57,7 +61,7 @@ int main()
         cout << msg << endl;
         }
     }
-    else{
+    else if(arDuom==0){
         cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
         int ar=2;
         //tikrina ar ivedamas geras skaicius
@@ -130,6 +134,81 @@ int main()
 
         }
         isvedimas(studentai, ar);
+    }
+    else{
+        cout << "Is keliu irasu norite, jog butu sudarytas failas" << endl;
+        int kiekIrasu;
+        //tikrina ar ivedamas geras skaicius
+        while(1){
+            cin >> kiekIrasu;
+            if(cin.fail()){
+            cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            cout << "Ivedete ne int'a" << endl;
+            }
+            else break;
+        }
+
+        cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
+        int ar=2;
+        //tikrina ar ivedamas geras skaicius
+        tikrinimasBinarinio(ar);
+
+        auto start = std::chrono::system_clock::now();
+
+        generavimasFailo(kiekIrasu);
+
+        vector<stud> studentai;
+        vector<stud> vargsiukai;
+        vector<stud> kietakai;
+        std::ifstream fin ("generatedfile.txt");
+        string line;
+        try{
+            if(!fin) throw "FAILAS NEEGZISTUOJA";
+
+            while (getline(fin, line)){
+                if(line!=""){
+                    stud temp;
+                    int x;
+                    std::istringstream iss(line);
+                    iss >> temp.vardas;
+                    iss >> temp.pavarde;
+
+                    while(!iss.eof()){
+                        iss >> x;
+                        if(iss.fail()) {
+                            iss.clear();
+                            string laikinas;
+                            iss >> laikinas;
+                            continue;
+                            /*cout << "Blogai ivesti duomenys" << endl;
+                            exit(EXIT_FAILURE);*/
+                        }
+                        else if(x<0 || x>10){
+                        continue;
+                        }
+                        else temp.nd.push_back(x);
+                    }
+                    temp.egz=temp.nd.back();
+                    temp.nd.pop_back();
+
+                    if(ar==1) temp.galutinis=galVid(temp);
+                    else temp.galutinis=galMed(temp);
+
+                    studentai.push_back(temp);
+                }
+                else continue;
+            }
+            rusiavimasStudentu(studentai, vargsiukai, kietakai, kiekIrasu);
+            surusiuotuIsvedimas(vargsiukai, kietakai);
+
+            auto end = std::chrono::system_clock::now();
+            auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+            auto elapsedS = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+            cout << "Programos trukme: " << elapsedMS.count() << "ms arba apytiksliai " << elapsedS.count() << "s" << endl;
+        }catch(const char* msg){
+        cout << msg << endl;
+        }
     }
     return 0;
 }
