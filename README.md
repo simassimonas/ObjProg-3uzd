@@ -12,6 +12,17 @@ Programos sudarymas:
 Sudarytu failu istrynimas:
 - `clean`
 
+**Po v0.3**
+
+Programos sudarymas:
+- `make`
+
+functions.cpp failo sukompiliavimas:
+- `fun`
+
+Sudarytu failu istrynimas:
+- `clean`
+
 ## Versiju istorija
 
 ### [v0.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.1)
@@ -74,3 +85,12 @@ vardas1 vardas 1 6 10 6 2 6 4
 vardas5 vardas 6 4 5
 vardas2 vardas 7 4 2 7
 ```
+### [v0.3](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.3)
+**Pridėta**
+- exception handling
+- header ir funkciju failai
+
+**Papildyta**
+- updated makefile
+
+

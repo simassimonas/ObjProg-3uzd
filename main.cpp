@@ -1,7 +1,6 @@
 ///Simono Šaltenio 2gr. 2pogr. v0.4
+
 #include "header.h"
-
-
 
 int main()
 {
