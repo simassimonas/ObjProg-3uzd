@@ -101,6 +101,7 @@ vardas2 vardas 7 4 2 7
 - programos veikimo laiko matavimas
 
 **Programos veikimo laiko testavimas generuojant skirtingo dydzio duomenu failus**
+
 Su 10 irasu: 3ms
 Su 100 irasu: 10ms
 Su 1000 irasu: 42ms
