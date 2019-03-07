@@ -1,4 +1,4 @@
-///Simono Šaltenio 2gr. 2pogr. v0.4
+///Simono Šaltenio 2gr. 2pogr. v0.5
 
 #include "header.h"
 
@@ -135,31 +135,27 @@ int main()
         isvedimas(studentai, ar);
     }
     else{
-        cout << "Is keliu irasu norite, jog butu sudarytas failas" << endl;
-        int kiekIrasu;
-        //tikrina ar ivedamas geras skaicius
-        while(1){
-            cin >> kiekIrasu;
-            if(cin.fail()){
-            cin.clear();
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-            cout << "Ivedete ne int'a" << endl;
-            }
-            else break;
-        }
-
-        cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
-        int ar=2;
-        //tikrina ar ivedamas geras skaicius
-        tikrinimasBinarinio(ar);
+        int kiekIrasu=100000;
+        /// paprastumo delei v0.5 versijoje skaiciavimus atliksiu tik su vidurkiu
+        // cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
+        int ar=1;
+        /// v0.5 versijoje skaiciavimus atliksiu tik su jau sugeneruotu failu
+        //generavimasFailo(kiekIrasu);
 
         auto start = std::chrono::system_clock::now();
-
-        generavimasFailo(kiekIrasu);
 
         vector<stud> studentai;
         vector<stud> vargsiukai;
         vector<stud> kietakai;
+
+        //deque<stud> studentai;
+        //deque<stud> vargsiukai;
+        //deque<stud> kietakai;
+
+        //list<stud> studentai;
+        //list<stud> vargsiukai;
+        //list<stud> kietakai;
+
         std::ifstream fin ("generatedfile.txt");
         string line;
         try{

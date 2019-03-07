@@ -150,6 +150,21 @@ void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, vecto
     }
 }
 
+void rusiavimasStudentu(deque<stud> &studentai, deque<stud> &vargsiukai, deque<stud> &kietakai, int kiekIrasu){
+    for(int i=0; i<kiekIrasu; i++){
+        if(studentai[i].galutinis>=5.0) kietakai.push_back(studentai[i]);
+        else vargsiukai.push_back(studentai[i]);
+    }
+}
+
+void rusiavimasStudentu(list<stud> &studentai, list<stud> &vargsiukai, list<stud> &kietakai, int kiekIrasu){
+    for(int i=0; i<kiekIrasu; i++){
+        list<stud>::iterator it = std::next(studentai.begin(), i);
+        if(it->galutinis>=5.0) kietakai.push_back(*it);
+        else vargsiukai.push_back(*it);
+    }
+}
+
 void surusiuotuIsvedimas(vector<stud> &vargsiukai, vector<stud> &kietakai){
     std::ofstream fout ("vargsiukai.txt");
     for(int i=0; i<vargsiukai.size(); i++){
@@ -167,5 +182,47 @@ void surusiuotuIsvedimas(vector<stud> &vargsiukai, vector<stud> &kietakai){
             ffout << kietakai[i].nd[j] << " ";
         }
         ffout << "Egz.: " << kietakai[i].egz << " Galutinis: " << kietakai[i].galutinis << endl;
+    }
+}
+
+void surusiuotuIsvedimas(deque<stud> &vargsiukai, deque<stud> &kietakai){
+    std::ofstream fout ("vargsiukai.txt");
+    for(int i=0; i<vargsiukai.size(); i++){
+        fout << vargsiukai[i].vardas << " " << vargsiukai[i].pavarde << " ";
+        for(int j=0; j<vargsiukai[i].nd.size(); j++){
+            fout << vargsiukai[i].nd[j] << " ";
+        }
+        fout << "Egz.: " << vargsiukai[i].egz << " Galutinis: " << vargsiukai[i].galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for(int i=0; i<kietakai.size(); i++){
+        ffout << kietakai[i].vardas << " " << kietakai[i].pavarde << " ";
+        for(int j=0; j<kietakai[i].nd.size(); j++){
+            ffout << kietakai[i].nd[j] << " ";
+        }
+        ffout << "Egz.: " << kietakai[i].egz << " Galutinis: " << kietakai[i].galutinis << endl;
+    }
+}
+
+void surusiuotuIsvedimas(list<stud> &vargsiukai, list<stud> &kietakai){
+    std::ofstream fout ("vargsiukai.txt");
+    for(int i=0; i<vargsiukai.size(); i++){
+        list<stud>::iterator it = std::next(vargsiukai.begin(), i);
+        fout << it->vardas << " " << it->pavarde << " ";
+        for(int j=0; j<it->nd.size(); j++){
+            fout << it->nd[j] << " ";
+        }
+        fout << "Egz.: " << it->egz << " Galutinis: " << it->galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for(int i=0; i<kietakai.size(); i++){
+        list<stud>::iterator it = std::next(kietakai.begin(), i);
+        ffout << it->vardas << " " << it->pavarde << " ";
+        for(int j=0; j<it->nd.size(); j++){
+            ffout << it->nd[j] << " ";
+        }
+        ffout << "Egz.: " << it->egz << " Galutinis: " << it->galutinis << endl;
     }
 }

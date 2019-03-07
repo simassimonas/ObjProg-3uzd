@@ -11,8 +11,10 @@
 #include <iomanip>
 #include <fstream>
 #include <chrono>
+#include <deque>
+#include <list>
 
-using std::cout; using std::endl; using std::cin; using std::string; using std::vector;
+using std::cout; using std::endl; using std::cin; using std::string; using std::vector; using std::deque; using std::list;
 
 struct stud{
 string vardas;
@@ -38,7 +40,15 @@ void isvedimas(vector<stud> &, int);
 
 void surusiuotuIsvedimas(vector<stud> &, vector<stud> &);
 
+void surusiuotuIsvedimas(deque<stud> &, deque<stud> &);
+
+void surusiuotuIsvedimas(list<stud> &, list<stud> &);
+
 void rusiavimasStudentu(vector<stud> &, vector<stud> &, vector<stud> &, int);
+
+void rusiavimasStudentu(deque<stud> &, deque<stud> &, deque<stud> &, int);
+
+void rusiavimasStudentu(list<stud> &, list<stud> &, list<stud> &, int);
 
 void generavimasFailo(int);
 
