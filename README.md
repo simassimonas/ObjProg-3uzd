@@ -113,3 +113,20 @@ Su 10000 irasu: 308ms
 Su 100000 irasu: 2930ms
 
 Su 1000000 irasu: 30431ms
+
+### [v0.5](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5)
+**Pridėta**
+- pridetos persidengiancios funkcijos, todel skaiciavimus galima atlikti su vector, deque ir list tipo konteineriais
+
+**Programos veikimo laiko testavimas naudojant vienodo dydzio duomenu failus, bet skirtingo tipo konteinerius**
+
+Failas su 100000 irasu:
+vector - 2181ms
+deque - 2267ms
+list - 121340ms
+
+Failas su 500000 irasu:
+vector - 10845ms, 11639ms, 10901ms, 10893ms
+deque - 11322ms, 11592ms, 13144ms, 11407ms, 11537ms
+list - truko tiek ilgai, kad nebesulaukiau pabaigos :D
+
