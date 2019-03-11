@@ -126,7 +126,7 @@ vector - 2181ms
 
 deque - 2267ms
 
-list - 121340ms
+list - 121340ms `blogai padaryta su list konteineriu, v0.5.1 pataisyta`
 
 
 *Failas su 500000 irasu:*
@@ -135,5 +135,17 @@ vector - 10845ms, 11639ms, 10901ms, 10893ms
 
 deque - 11322ms, 11592ms, 13144ms, 11407ms, 11537ms
 
-list - truko tiek ilgai, kad nebesulaukiau pabaigos :D
+list - truko tiek ilgai, kad nebesulaukiau pabaigos :D  `blogai padaryta su list konteineriu, v0.5.1 pataisyta`
 
+### [v0.5.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5.1)
+**Papildyta**
+- buvau pridares nesamoniu su list konteineriu, todel skaiciavimai truko neadekvaciai ilgai, dabar viskas sutvarkyta
+
+*Failas su 100000 irasu:*
+
+list - 2136ms
+
+
+*Failas su 500000 irasu:*
+
+list - 10730ms
