@@ -1,4 +1,4 @@
-///Simono Šaltenio 2gr. 2pogr. v0.5
+///Simono Šaltenio 2gr. 2pogr. v0.5.1
 
 #include "header.h"
 
@@ -135,7 +135,7 @@ int main()
         isvedimas(studentai, ar);
     }
     else{
-        int kiekIrasu=100000;
+        int kiekIrasu=500000;
         /// paprastumo delei v0.5 versijoje skaiciavimus atliksiu tik su vidurkiu
         // cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
         int ar=1;
@@ -144,17 +144,17 @@ int main()
 
         auto start = std::chrono::system_clock::now();
 
-        vector<stud> studentai;
-        vector<stud> vargsiukai;
-        vector<stud> kietakai;
+        //vector<stud> studentai;
+        //vector<stud> vargsiukai;
+        //vector<stud> kietakai;
 
         //deque<stud> studentai;
         //deque<stud> vargsiukai;
         //deque<stud> kietakai;
 
-        //list<stud> studentai;
-        //list<stud> vargsiukai;
-        //list<stud> kietakai;
+        list<stud> studentai;
+        list<stud> vargsiukai;
+        list<stud> kietakai;
 
         std::ifstream fin ("generatedfile.txt");
         string line;
