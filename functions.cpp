@@ -143,8 +143,9 @@ void generavimasFailo(int kiekIrasu){
 
 }
 
+//PIRMA STRATEGIJA
 void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, vector<stud> &kietakai, int kiekIrasu){
-    cout << "Programos metu naudojamas vector konteineris" << endl;
+    cout << "Programos metu naudojamas vector konteineris ir naudojama pirma strategija" << endl;
     for(int i=0; i<kiekIrasu; i++){
         if(studentai[i].galutinis>=5.0) kietakai.push_back(studentai[i]);
         else vargsiukai.push_back(studentai[i]);
@@ -152,7 +153,7 @@ void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, vecto
 }
 
 void rusiavimasStudentu(deque<stud> &studentai, deque<stud> &vargsiukai, deque<stud> &kietakai, int kiekIrasu){
-    cout << "Programos metu naudojamas deqhe konteineris" << endl;
+    cout << "Programos metu naudojamas deque konteineris ir naudojama pirma strategija" << endl;
     for(int i=0; i<kiekIrasu; i++){
         if(studentai[i].galutinis>=5.0) kietakai.push_back(studentai[i]);
         else vargsiukai.push_back(studentai[i]);
@@ -160,7 +161,7 @@ void rusiavimasStudentu(deque<stud> &studentai, deque<stud> &vargsiukai, deque<s
 }
 
 void rusiavimasStudentu(list<stud> &studentai, list<stud> &vargsiukai, list<stud> &kietakai, int kiekIrasu){
-    cout << "Programos metu naudojamas list konteineris" << endl;
+    cout << "Programos metu naudojamas list konteineris ir naudojama pirma strategija" << endl;
     auto it = studentai.begin();
     while(it!=studentai.end()){
         if(it->galutinis>=5.0) kietakai.push_back(*it);
@@ -224,6 +225,106 @@ void surusiuotuIsvedimas(list<stud> &vargsiukai, list<stud> &kietakai){
     std::ofstream ffout ("kietakai.txt");
     it = kietakai.begin();
      while(it!=kietakai.end()){
+        ffout << it->vardas << " " << it->pavarde << " ";
+        for(int j=0; j<it->nd.size(); j++){
+            ffout << it->nd[j] << " ";
+        }
+        ffout << "Egz.: " << it->egz << " Galutinis: " << it->galutinis << endl;
+        it++;
+    }
+
+}
+
+//ANTRA STRATEGIJA
+void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, int kiekIrasu){
+    cout << "Programos metu naudojamas vector konteineris ir naudojama antra strategija" << endl;
+    for(int i=0; i<studentai.size(); i++){
+        if(studentai[i].galutinis < 5.0){
+            vargsiukai.push_back(studentai[i]);
+            studentai.erase(studentai.begin()+i);
+            i--;
+        }
+    }
+}
+
+void rusiavimasStudentu(deque<stud> &studentai, deque<stud> &vargsiukai, int kiekIrasu){
+    cout << "Programos metu naudojamas deque konteineris ir naudojama antra strategija" << endl;
+    for(int i=0; i<studentai.size(); i++){
+        if(studentai[i].galutinis < 5.0){
+            vargsiukai.push_back(studentai[i]);
+            studentai.erase(studentai.begin()+i);
+            i--;
+        }
+    }
+}
+
+void rusiavimasStudentu(list<stud> &studentai, list<stud> &vargsiukai, int kiekIrasu){
+    cout << "Programos metu naudojamas list konteineris ir naudojama antra strategija " << endl;
+    auto it = studentai.begin();
+    while(it!=studentai.end()){
+        if(it->galutinis<5.0){
+            vargsiukai.push_back(*it);
+            it = studentai.erase(it);
+        }
+        else it++;
+    }
+}
+
+void surusiuotuIsvedimas(vector<stud> &vargsiukai, vector<stud> &studentai, int f){
+    std::ofstream fout ("vargsiukai.txt");
+    for(int i=0; i<vargsiukai.size(); i++){
+        fout << vargsiukai[i].vardas << " " << vargsiukai[i].pavarde << " ";
+        for(int j=0; j<vargsiukai[i].nd.size(); j++){
+            fout << vargsiukai[i].nd[j] << " ";
+        }
+        fout << "Egz.: " << vargsiukai[i].egz << " Galutinis: " << vargsiukai[i].galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for(int i=0; i<studentai.size(); i++){
+        ffout << studentai[i].vardas << " " << studentai[i].pavarde << " ";
+        for(int j=0; j<studentai[i].nd.size(); j++){
+            ffout << studentai[i].nd[j] << " ";
+        }
+        ffout << "Egz.: " << studentai[i].egz << " Galutinis: " << studentai[i].galutinis << endl;
+    }
+}
+
+void surusiuotuIsvedimas(deque<stud> &vargsiukai, deque<stud> &studentai, int f){
+    std::ofstream fout ("vargsiukai.txt");
+    for(int i=0; i<vargsiukai.size(); i++){
+        fout << vargsiukai[i].vardas << " " << vargsiukai[i].pavarde << " ";
+        for(int j=0; j<vargsiukai[i].nd.size(); j++){
+            fout << vargsiukai[i].nd[j] << " ";
+        }
+        fout << "Egz.: " << vargsiukai[i].egz << " Galutinis: " << vargsiukai[i].galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for(int i=0; i<studentai.size(); i++){
+        ffout << studentai[i].vardas << " " <<studentai[i].pavarde << " ";
+        for(int j=0; j<studentai[i].nd.size(); j++){
+            ffout << studentai[i].nd[j] << " ";
+        }
+        ffout << "Egz.: " <<studentai[i].egz << " Galutinis: " << studentai[i].galutinis << endl;
+    }
+}
+
+void surusiuotuIsvedimas(list<stud> &vargsiukai, list<stud> &studentai, int f){
+    std::ofstream fout ("vargsiukai.txt");
+    auto it = vargsiukai.begin();
+     while(it!=vargsiukai.end()){
+        fout << it->vardas << " " << it->pavarde << " ";
+        for(int j=0; j<it->nd.size(); j++){
+            fout << it->nd[j] << " ";
+        }
+        fout << "Egz.: " << it->egz << " Galutinis: " << it->galutinis << endl;
+        it++;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    it = studentai.begin();
+     while(it!=studentai.end()){
         ffout << it->vardas << " " << it->pavarde << " ";
         for(int j=0; j<it->nd.size(); j++){
             ffout << it->nd[j] << " ";

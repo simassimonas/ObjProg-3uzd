@@ -6,7 +6,7 @@ int main()
 {
     cout << "Jei norite duomenis ivesti pats, iveskite 0" << endl;
     cout << "Jei norite duomenis nuskaityti is failo, iveskite 1" << endl;
-    cout << "Jei norite sukurti random duomenu faila, iveskite 2" << endl;
+    cout << "Jei norite sukurti random duomenu faila, iveskite 2 (visi skaiciavimai nuo v0.4 irgi yra realizuojami sitam pasirinkime)" << endl;
     int arDuom=3;
     tikrinimasDuom(arDuom);
 
@@ -135,26 +135,33 @@ int main()
         isvedimas(studentai, ar);
     }
     else{
-        int kiekIrasu=500000;
+        int kiekIrasu=10000;
         /// paprastumo delei v0.5 versijoje skaiciavimus atliksiu tik su vidurkiu
         // cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
         int ar=1;
         /// v0.5 versijoje skaiciavimus atliksiu tik su jau sugeneruotu failu
         //generavimasFailo(kiekIrasu);
 
+        cout << "Pirma strategija - 1" << endl;
+        cout << "Antra strategija - 0" << endl;
+        int arStr=2;
+        tikrinimasBinarinio(arStr);
+
         auto start = std::chrono::system_clock::now();
+
+        //NORINT PASIRINKTI, KOKI KONTEINERI NAUDOTI, REIKIA UZKOMENTUOTI LIKUSIUS 2
 
         //vector<stud> studentai;
         //vector<stud> vargsiukai;
         //vector<stud> kietakai;
 
-        //deque<stud> studentai;
-        //deque<stud> vargsiukai;
-        //deque<stud> kietakai;
+        deque<stud> studentai;
+        deque<stud> vargsiukai;
+        deque<stud> kietakai;
 
-        list<stud> studentai;
-        list<stud> vargsiukai;
-        list<stud> kietakai;
+        //list<stud> studentai;
+        //list<stud> vargsiukai;
+        //list<stud> kietakai;
 
         std::ifstream fin ("generatedfile.txt");
         string line;
@@ -176,8 +183,11 @@ int main()
                             string laikinas;
                             iss >> laikinas;
                             continue;
-                            /*cout << "Blogai ivesti duomenys" << endl;
-                            exit(EXIT_FAILURE);*/
+                            /*
+                            arba butu galima is viso sustabdyti programa
+                            cout << "Blogai ivesti duomenys" << endl;
+                            exit(EXIT_FAILURE);
+                            */
                         }
                         else if(x<0 || x>10){
                         continue;
@@ -194,8 +204,16 @@ int main()
                 }
                 else continue;
             }
-            rusiavimasStudentu(studentai, vargsiukai, kietakai, kiekIrasu);
-            surusiuotuIsvedimas(vargsiukai, kietakai);
+
+            if(arStr==1){
+                rusiavimasStudentu(studentai, vargsiukai, kietakai, kiekIrasu);
+                surusiuotuIsvedimas(vargsiukai, kietakai);
+            }
+            else{
+                int f=0;
+                rusiavimasStudentu(studentai, vargsiukai, kiekIrasu);
+                surusiuotuIsvedimas(vargsiukai, studentai, f);
+            }
 
             auto end = std::chrono::system_clock::now();
             auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);

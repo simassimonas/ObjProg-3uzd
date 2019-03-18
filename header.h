@@ -39,16 +39,20 @@ void tikrinimasBinarinio(int &);
 void isvedimas(vector<stud> &, int);
 
 void surusiuotuIsvedimas(vector<stud> &, vector<stud> &);
-
 void surusiuotuIsvedimas(deque<stud> &, deque<stud> &);
-
 void surusiuotuIsvedimas(list<stud> &, list<stud> &);
 
 void rusiavimasStudentu(vector<stud> &, vector<stud> &, vector<stud> &, int);
-
 void rusiavimasStudentu(deque<stud> &, deque<stud> &, deque<stud> &, int);
-
 void rusiavimasStudentu(list<stud> &, list<stud> &, list<stud> &, int);
+
+void surusiuotuIsvedimas(vector<stud> &, vector<stud> &, int);
+void surusiuotuIsvedimas(deque<stud> &, deque<stud> &, int);
+void surusiuotuIsvedimas(list<stud> &, list<stud> &, int);
+
+void rusiavimasStudentu(vector<stud> &, vector<stud> &, int);
+void rusiavimasStudentu(deque<stud> &, deque<stud> &, int);
+void rusiavimasStudentu(list<stud> &, list<stud> &, int);
 
 void generavimasFailo(int);
 
