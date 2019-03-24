@@ -137,7 +137,7 @@ int main()
     else{
         //PASIRINKTI KIEK IRASU
         int kiekIrasu=100000;
-        generavimasFailo(kiekIrasu);
+        //generavimasFailo(kiekIrasu);
 
         /// paprastumo delei v0.5 versijoje skaiciavimus atliksiu tik su vidurkiu
         // cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
@@ -206,6 +206,8 @@ int main()
                 else continue;
             }
 
+            //UZKOMENTUOTA NUO V1.0, KAD VEIKTU PAPILDOMA UZDUOTIS
+            /*
             if(arStr==1){
                 rusiavimasStudentu(studentai, vargsiukai, kietakai, kiekIrasu);
                 surusiuotuIsvedimas(vargsiukai, kietakai);
@@ -215,8 +217,12 @@ int main()
                 rusiavimasStudentu(studentai, vargsiukai, kiekIrasu);
                 surusiuotuIsvedimas(vargsiukai, studentai, f);
                 */
-                rusiavimasSuPartition(studentai);
-            }
+            //    rusiavimasSuPartition(studentai);
+            //}
+
+            //PAPILDOMA UZDUOTIS
+            //raskMinkstus(studentai, vargsiukai);
+            iterpkKietus(studentai, vargsiukai);
 
             auto end = std::chrono::system_clock::now();
             auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);

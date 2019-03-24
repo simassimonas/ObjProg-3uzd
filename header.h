@@ -63,4 +63,10 @@ void generavimasFailo(int);
 
 void tikrinimasDuom(int &);
 
+//PAPILDOMA UZDUOTIS
+
+void raskMinkstus(vector<stud> &, vector<stud> &);
+void iterpkKietus(vector<stud> &, vector<stud> &);
+void iterpkKietus(deque<stud> &, deque<stud> &);
+
 #endif // HEADER_H_INCLUDED

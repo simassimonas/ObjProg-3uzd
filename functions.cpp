@@ -365,4 +365,71 @@ void rusiavimasSuPartition(vector<stud> &studentai){
     }
 }
 
+//PAPILDOMA UZDUOTIS
+void raskMinkstus(vector<stud> &studentai, vector<stud> &vargsiukai){
+    auto start = std::chrono::system_clock::now();
 
+    for(int i=0; i<studentai.size(); i++){
+        if(studentai[i].galutinis < 5.0){
+            vargsiukai.push_back(studentai[i]);
+            studentai.erase(studentai.begin()+i);
+            i--;
+        }
+    }
+
+    auto end = std::chrono::system_clock::now();
+    auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    auto elapsedS = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+    cout << "Funkcijos raskMinkstus trukme: " << elapsedMS.count() << "ms arba apytiksliai " << elapsedS.count() << "s" << endl;
+    cout << endl;
+}
+
+void iterpkKietus(vector<stud> &studentai, vector<stud> &vargsiukai){
+    auto start = std::chrono::system_clock::now();
+
+    vector<stud>::size_type i = 0;
+    vector<stud>::size_type kiek = 0; //parodo, kiek bus kietaku
+    while(i != studentai.size()){
+        if (studentai[i].galutinis < 5.0){
+            vargsiukai.push_back(studentai[i]);
+        }
+        else{
+            studentai[kiek] = studentai[i];
+            kiek++;
+        }
+        i++;
+    }
+    studentai.resize(kiek);
+    studentai.shrink_to_fit();
+
+    auto end = std::chrono::system_clock::now();
+    auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    auto elapsedS = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+    cout << "Funkcijos iterpkKietus naudojant vector konteineri trukme: " << elapsedMS.count() << "ms arba apytiksliai " << elapsedS.count() << "s" << endl;
+    cout << endl;
+}
+
+void iterpkKietus(deque<stud> &studentai, deque<stud> &vargsiukai){
+    auto start = std::chrono::system_clock::now();
+    vector<stud>::size_type i = 0;
+    vector<stud>::size_type galas = studentai.size();
+    vector<stud>::size_type kiek = 0; //parodo, kiek bus kietaku
+    while(i != galas){
+        if (studentai[i].galutinis < 5.0){
+            vargsiukai.push_back(studentai[i]);
+        }
+        else{
+            studentai.push_front(studentai[i]);
+            kiek++;
+        }
+        i++;
+    }
+    studentai.resize(kiek);
+    studentai.shrink_to_fit();
+
+    auto end = std::chrono::system_clock::now();
+    auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+    auto elapsedS = std::chrono::duration_cast<std::chrono::seconds>(end - start);
+    cout << "Funkcijos iterpkKietus naudojant deque konteineri trukme: " << elapsedMS.count() << "ms arba apytiksliai " << elapsedS.count() << "s" << endl;
+    cout << endl;
+}
