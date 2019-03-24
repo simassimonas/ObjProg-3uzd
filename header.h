@@ -13,6 +13,7 @@
 #include <chrono>
 #include <deque>
 #include <list>
+#include <algorithm>
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector; using std::deque; using std::list;
 
@@ -53,6 +54,10 @@ void surusiuotuIsvedimas(list<stud> &, list<stud> &, int);
 void rusiavimasStudentu(vector<stud> &, vector<stud> &, int);
 void rusiavimasStudentu(deque<stud> &, deque<stud> &, int);
 void rusiavimasStudentu(list<stud> &, list<stud> &, int);
+
+bool isVargsiukas (const stud&);
+void rusiavimasSuPartition(vector<stud> &);
+
 
 void generavimasFailo(int);
 

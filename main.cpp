@@ -135,12 +135,13 @@ int main()
         isvedimas(studentai, ar);
     }
     else{
-        int kiekIrasu=10000;
+        //PASIRINKTI KIEK IRASU
+        int kiekIrasu=100000;
+        generavimasFailo(kiekIrasu);
+
         /// paprastumo delei v0.5 versijoje skaiciavimus atliksiu tik su vidurkiu
         // cout << "Jei norite skaiciuoti su vidurkiu, iveskite 1, jei su mediana 0: " << endl;
         int ar=1;
-        /// v0.5 versijoje skaiciavimus atliksiu tik su jau sugeneruotu failu
-        //generavimasFailo(kiekIrasu);
 
         cout << "Pirma strategija - 1" << endl;
         cout << "Antra strategija - 0" << endl;
@@ -151,13 +152,13 @@ int main()
 
         //NORINT PASIRINKTI, KOKI KONTEINERI NAUDOTI, REIKIA UZKOMENTUOTI LIKUSIUS 2
 
-        //vector<stud> studentai;
-        //vector<stud> vargsiukai;
-        //vector<stud> kietakai;
+        vector<stud> studentai;
+        vector<stud> vargsiukai;
+        vector<stud> kietakai;
 
-        deque<stud> studentai;
-        deque<stud> vargsiukai;
-        deque<stud> kietakai;
+        //deque<stud> studentai;
+        //deque<stud> vargsiukai;
+        //deque<stud> kietakai;
 
         //list<stud> studentai;
         //list<stud> vargsiukai;
@@ -210,9 +211,11 @@ int main()
                 surusiuotuIsvedimas(vargsiukai, kietakai);
             }
             else{
-                int f=0;
+                /*int f=0;
                 rusiavimasStudentu(studentai, vargsiukai, kiekIrasu);
                 surusiuotuIsvedimas(vargsiukai, studentai, f);
+                */
+                rusiavimasSuPartition(studentai);
             }
 
             auto end = std::chrono::system_clock::now();

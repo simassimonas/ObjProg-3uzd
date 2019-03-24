@@ -146,10 +146,14 @@ void generavimasFailo(int kiekIrasu){
 //PIRMA STRATEGIJA
 void rusiavimasStudentu(vector<stud> &studentai, vector<stud> &vargsiukai, vector<stud> &kietakai, int kiekIrasu){
     cout << "Programos metu naudojamas vector konteineris ir naudojama pirma strategija" << endl;
+    vargsiukai.reserve(kiekIrasu);
+    kietakai.reserve(kiekIrasu);
     for(int i=0; i<kiekIrasu; i++){
         if(studentai[i].galutinis>=5.0) kietakai.push_back(studentai[i]);
         else vargsiukai.push_back(studentai[i]);
     }
+    vargsiukai.shrink_to_fit();
+    kietakai.shrink_to_fit();
 }
 
 void rusiavimasStudentu(deque<stud> &studentai, deque<stud> &vargsiukai, deque<stud> &kietakai, int kiekIrasu){
@@ -334,3 +338,31 @@ void surusiuotuIsvedimas(list<stud> &vargsiukai, list<stud> &studentai, int f){
     }
 
 }
+
+//PARTITION ALGORITMO NAUDOJIMAS
+bool isVargsiukas (const stud& laikinas) { return laikinas.galutinis < 5.0; }
+
+void rusiavimasSuPartition(vector<stud> &studentai){
+    auto it = std::partition(studentai.begin(), studentai.end(), isVargsiukas);
+
+    //ISVEDIMAS I FAILUS
+    std::ofstream fout ("vargsiukai.txt");
+    for (auto i=studentai.begin(); i!=it; i++){
+        fout << i->vardas << " " << i->pavarde << " ";
+        for(int j=0; j<i->nd.size(); j++){
+            fout << i->nd[j] << " ";
+        }
+        fout << "Egz.: " << i->egz << " Galutinis: " << i->galutinis << endl;
+    }
+
+    std::ofstream ffout ("kietakai.txt");
+    for (auto i=it; i!=studentai.end(); i++){
+        ffout << i->vardas << " " << i->pavarde << " ";
+        for(int j=0; j<i->nd.size(); j++){
+            ffout << i->nd[j] << " ";
+        }
+        ffout << "Egz.: " << i->egz << " Galutinis: " << i->galutinis << endl;
+    }
+}
+
+
