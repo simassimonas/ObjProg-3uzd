@@ -102,17 +102,14 @@ vardas2 vardas 7 4 2 7
 
 **Programos veikimo laiko testavimas generuojant skirtingo dydzio duomenu failus**
 
-Su 10 irasu: 3ms 
-
-Su 100 irasu: 10ms
-
-Su 1000 irasu: 42ms
-
-Su 10000 irasu: 308ms 
-
-Su 100000 irasu: 2930ms
-
-Su 1000000 irasu: 30431ms
+| Irašų sk.  | Trukmė | 
+|----------|-------------|
+| 10 | 3ms  |
+| 100 | 10ms | 
+| 1000 | 42ms | 
+| 10000 | 308ms | 
+| 100000 | 2930ms | 
+| 1000000 | 30431ms | 
 
 ### [v0.5](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5)
 **Pridėta**
@@ -120,32 +117,53 @@ Su 1000000 irasu: 30431ms
 
 **Programos veikimo laiko testavimas naudojant vienodo dydzio duomenu failus, bet skirtingo tipo konteinerius**
 
-*Failas su 100000 irasu:*
+| Konteineris | 100000irašų | 500000irašų |
+|:---:|:---:|:---:|
+| Vector | 2181ms |  10901ms |
+| Deque | 2267ms | 11592ms |
+| List | 121340ms | error |
 
-vector - 2181ms
-
-deque - 2267ms
-
-list - 121340ms `blogai padaryta su list konteineriu, v0.5.1 pataisyta`
-
-
-*Failas su 500000 irasu:*
-
-vector - 10845ms, 11639ms, 10901ms, 10893ms
-
-deque - 11322ms, 11592ms, 13144ms, 11407ms, 11537ms
-
-list - truko tiek ilgai, kad nebesulaukiau pabaigos :D  `blogai padaryta su list konteineriu, v0.5.1 pataisyta`
+ `sitoj versijoje blogai padaryta su list konteineriu, v0.5.1 pataisyta`
 
 ### [v0.5.1](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5.1)
 **Papildyta**
 - buvau pridares nesamoniu su list konteineriu, todel skaiciavimai truko neadekvaciai ilgai, dabar viskas sutvarkyta
 
-*Failas su 100000 irasu:*
+| Konteineris | 100000irašų | 500000irašų |
+|:---:|:---:|:---:|
+| List | 2136ms | 10730ms |
 
-list - 2136ms
+### [v1.0](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5)
+**Pridėta**
+- antra startegija
+
+**Programos veikimo laiko testavimas naudojant skirtingo dydzio duomenu failus ir skirtingas strategijas**
+
+**Vector**
+
+| Irašų sk. | 1 strategija | 2 strategija |
+|:---:|:---:|:---:|
+| 1000 | 26ms | 128ms |
+| 10000 | 240ms | 9s |
+| 100000 | 2,2s | 897s |
+| 1000000 | 22s | Per ilgai |
 
 
-*Failas su 500000 irasu:*
+ **Deque**
 
-list - 10730ms
+| Irašų sk. | 1 strategija | 2 strategija |
+|:---:|:---:|:---:|
+| 1000 | 24ms | 70ms |
+| 10000 | 240ms | 3.5s |
+| 100000 | 2,2s | 375s |
+| 1000000 | 23s | Per ilgai |
+
+
+**List**
+
+| Irašų sk. | 1 strategija | 2 strategija |
+|:---:|:---:|:---:|
+| 1000 | 30ms | 30ms |
+| 10000 | 270ms | 212ms |
+| 100000 | 2,1s | 2.1s |
+| 1000000 | 22s | 21s |
