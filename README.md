@@ -167,3 +167,12 @@ vardas2 vardas 7 4 2 7
 | 10000 | 270ms | 212ms |
 | 100000 | 2,1s | 2.1s |
 | 1000000 | 22s | 21s |
+
+**Skaiciavimu trukme, pritaikius std::partition algoritma vectoriui**
+
+| Irašų sk. | std::partition |
+|:---:|:---:|
+| 1000 | 26ms | 
+| 10000 | 230ms | 
+| 100000 | 2,1s | 
+| 1000000 | 21s | 
