@@ -136,6 +136,7 @@ vardas2 vardas 7 4 2 7
 ### [v1.0](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5)
 **Pridėta**
 - antra startegija
+- skaiciavimas su std::partition algoritmu
 
 **Programos veikimo laiko testavimas naudojant skirtingo dydzio duomenu failus ir skirtingas strategijas**
 
