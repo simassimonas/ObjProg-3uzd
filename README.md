@@ -177,3 +177,8 @@ vardas2 vardas 7 4 2 7
 | 10000 | 230ms | 
 | 100000 | 2,1s | 
 | 1000000 | 21s | 
+
+### [PAPILDOMA UZDUOTIS](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v1.0)
+**Pridėta**
+- raskMinkstus() ir iterpkKietus() funkcijos
+
