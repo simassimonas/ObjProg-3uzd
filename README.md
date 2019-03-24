@@ -133,7 +133,7 @@ vardas2 vardas 7 4 2 7
 |:---:|:---:|:---:|
 | List | 2136ms | 10730ms |
 
-### [v1.0](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5)
+### [v1.0](https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v1.0)
 **Pridėta**
 - antra startegija
 - skaiciavimas su std::partition algoritmu
