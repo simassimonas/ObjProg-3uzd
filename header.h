@@ -17,56 +17,34 @@
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector; using std::deque; using std::list;
 
-struct stud{
-string vardas;
-string pavarde;
-vector<int> nd;
-int egz;
-double galutinis;
+class Studentas {
+private:
+  string vardas;
+  string pavarde;
+  vector<double> nd;
+  double egz;
+  double galutinis;
+public:
+  Studentas() : egz(0), galutinis(0) { }  // default konstruktorius
+  inline string getVardas() const { return vardas;}
+  inline string getPavarde() const { return pavarde;}
+  inline double getGalutinis() const { return galutinis;}
+  inline double getEgz() const { return egz;}
+  const vector<double>& getNd() const {return nd;}
+  void setVardas(string v) {vardas=v;}
+  void setPavarde(string p) {pavarde=p;}
+  void pushNd(double n) {nd.push_back(n);}
+  void setEgz();
+  void setGalutinis();
+
 };
 
-int tikrinimas();
-
-void ivedimas(stud&);
-
-void generavimas(stud &, int);
-
-double galVid(stud &);
-
-double galMed(stud &);
-
-void tikrinimasBinarinio(int &);
-
-void isvedimas(vector<stud> &, int);
-
-void surusiuotuIsvedimas(vector<stud> &, vector<stud> &);
-void surusiuotuIsvedimas(deque<stud> &, deque<stud> &);
-void surusiuotuIsvedimas(list<stud> &, list<stud> &);
-
-void rusiavimasStudentu(vector<stud> &, vector<stud> &, vector<stud> &, int);
-void rusiavimasStudentu(deque<stud> &, deque<stud> &, deque<stud> &, int);
-void rusiavimasStudentu(list<stud> &, list<stud> &, list<stud> &, int);
-
-void surusiuotuIsvedimas(vector<stud> &, vector<stud> &, int);
-void surusiuotuIsvedimas(deque<stud> &, deque<stud> &, int);
-void surusiuotuIsvedimas(list<stud> &, list<stud> &, int);
-
-void rusiavimasStudentu(vector<stud> &, vector<stud> &, int);
-void rusiavimasStudentu(deque<stud> &, deque<stud> &, int);
-void rusiavimasStudentu(list<stud> &, list<stud> &, int);
-
-bool isVargsiukas (const stud&);
-void rusiavimasSuPartition(vector<stud> &);
-
+bool isVargsiukas (const Studentas&);
+void rusiavimasSuPartition(vector<Studentas> &);
 
 void generavimasFailo(int);
 
-void tikrinimasDuom(int &);
-
-//PAPILDOMA UZDUOTIS
-
-void raskMinkstus(vector<stud> &, vector<stud> &);
-void iterpkKietus(vector<stud> &, vector<stud> &);
-void iterpkKietus(deque<stud> &, deque<stud> &);
+void tikrinimasBinarinio(int &);
+int tikrinimas();
 
 #endif // HEADER_H_INCLUDED
