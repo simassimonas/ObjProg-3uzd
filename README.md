@@ -186,3 +186,33 @@ vardas2 vardas 7 4 2 7
 |:---:|:---:|:---:|:---:|
 | 10000 | 9.2s | 9ms | 13ms |
 | 100000 | 894s | 90ms | 150ms |
+
+
+### [v1.1](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v1.1)
+**Pridėta**
+- studento klase
+
+**Skaiciavimu trukme, pritaikius std::partition algoritma ir vectoriu naudojant sena struct**
+
+| Irašų sk. | std::partition |
+|:---:|:---:|
+| 10000 | 230ms | 
+| 100000 | 2,1s | 
+| 500000 | 21s | 
+
+**Skaiciavimu trukme, pritaikius std::partition algoritma ir vectoriu naudojant nauja class**
+
+| Irašų sk. | std::partition |
+|:---:|:---:|
+| 10000 | 430ms | 
+| 100000 | 4,3s | 
+| 500000 | 21s | 
+
+**Skaiciavimu trukme, pritaikius std::partition algoritma, vectoriu ir naudojant nauja class bei optimization flags (sie skaiciavimai buvo atlikti ne ant Windows'u, o ant Ubuntu, todel greiciai gerokai skiriasi nuo praeitu)**
+
+| Irašų sk. | be flag'u | O1 | O2 | O3 |
+|:---:|:---:|:---:|:---:|:---:|
+| 10000 | 100ms | 77ms | 73ms | 71ms | 
+| 100000 | 1050Ms | 750ms | 750ms | 750ms | 
+| 500000 | 5s | 3,7s | 3,7s | 3,7s |  
+
