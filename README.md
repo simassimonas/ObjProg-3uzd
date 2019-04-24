@@ -210,7 +210,7 @@ vardas2 vardas 7 4 2 7
 
 **Skaiciavimu trukme, pritaikius std::partition algoritma, vectoriu ir naudojant nauja class bei optimization flags (sie skaiciavimai buvo atlikti ne ant Windows'u, o ant Ubuntu, todel greiciai gerokai skiriasi nuo praeitu)**
 
-| Irašų sk. | be flag'u | O1 | O2 | O3 |
+| Irašų sk. | default | O1 | O2 | O3 |
 |:---:|:---:|:---:|:---:|:---:|
 | 10000 | 100ms | 77ms | 73ms | 71ms | 
 | 100000 | 1050Ms | 750ms | 750ms | 750ms | 
