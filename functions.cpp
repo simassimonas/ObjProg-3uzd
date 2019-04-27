@@ -51,6 +51,71 @@ void Studentas::setGalutinis(){
     galutinis = 0.4*vid + 0.6*egz;
 }
 
+void Studentas::setGalutinis(double a){
+    galutinis=a;
+}
+
+void Studentas::setEgz(double a){
+    egz=a;
+}
+
+bool Studentas::operator==(const Studentas& a){
+    if(egz==a.egz) return 1;
+    else return 0;
+}
+
+bool Studentas::operator!=(const Studentas& a){
+    if(egz!=a.egz) return 1;
+    else return 0;
+}
+
+std::ostream& operator<<(std::ostream& out, const Studentas& a){
+    out << a.vardas << " " << a.pavarde << " ";
+    for(int i=0; i<a.nd.size(); i++){
+        out << a.nd[i] << " ";
+    }
+    out << "Egz.: " << a.egz << " Galutinis: " << a.galutinis;
+    return out;
+}
+
+std::istream& operator>>(std::istream& in, Studentas& a){
+    cout << "Iveskite varda" << endl;
+    in >> a.vardas;
+    cout << "Iveskite pavarde" << endl;
+    in >> a.pavarde;
+    cout << "Iveskite egzamino pazymi" << endl;
+    in >> a.egz;
+    cout << "Iveskite 10 pazymiu" << endl;
+    double temp;
+    for(int i=0; i<10; i++){
+        in >> temp;
+        a.nd.push_back(temp);
+    }
+    //is ivestu pazymiu paskaiciuoja galutini
+    a.setGalutinis();
+    return in;
+}
+
+Studentas::Studentas(const Studentas& a){
+    vardas = a.vardas;
+	pavarde = a.pavarde;
+	egz = a.egz;
+	galutinis = a.galutinis;
+	nd = a.nd;
+}
+
+Studentas& Studentas::operator=(const Studentas& a)
+{
+	if (&a == this) return *this;
+
+	vardas = a.vardas;
+	pavarde = a.pavarde;
+	egz = a.egz;
+	galutinis = a.galutinis;
+	nd = a.nd;
+	return *this;
+}
+
 //PARTITION ALGORITMO NAUDOJIMAS
 bool isVargsiukas (const Studentas& laikinas) { return laikinas.getGalutinis() < 5.0; }
 
@@ -60,21 +125,11 @@ void rusiavimasSuPartition(vector<Studentas> &studentai){
     //ISVEDIMAS I FAILUS
     std::ofstream fout ("vargsiukai.txt");
     for (auto i=studentai.begin(); i!=it; i++){
-        fout << i->getVardas() << " " << i->getPavarde() << " ";
-        auto nd = i->getNd();
-        for(int j=0; j<nd.size(); j++){
-            fout << nd[j] << " ";
-        }
-        fout << "Egz.: " << i->getEgz() << " Galutinis: " << i->getGalutinis() << endl;
+        fout << *i << endl;
     }
 
     std::ofstream ffout ("kietakai.txt");
     for (auto i=it; i!=studentai.end(); i++){
-        ffout << i->getVardas() << " " << i->getPavarde() << " ";
-        auto nd = i->getNd();
-        for(int j=0; j<nd.size(); j++){
-            ffout << nd[j] << " ";
-        }
-        ffout << "Egz.: " << i->getEgz() << " Galutinis: " << i->getGalutinis() << endl;
+        ffout << *i << endl;
     }
 }

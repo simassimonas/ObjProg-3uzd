@@ -9,7 +9,7 @@ int main()
     generavimasFailo(kiekIrasu);
 
     //LAIKO SKAICIAVIMAS
-    auto start = std::chrono::system_clock::now();
+    Timer t;  // Paleisti
 
     vector<Studentas> studentai;
 
@@ -58,13 +58,9 @@ int main()
 
         rusiavimasSuPartition(studentai);
 
-        auto end = std::chrono::system_clock::now();
-        auto elapsedMS = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        auto elapsedS = std::chrono::duration_cast<std::chrono::seconds>(end - start);
-        cout << "Programos trukme: " << elapsedMS.count() << "ms arba apytiksliai " << elapsedS.count() << "s" << endl;
+    cout << "Programos trukme: " << t.elapsed() << "s" << endl;
     }catch(const char* msg){
     cout << msg << endl;
     }
-
     return 0;
 }
