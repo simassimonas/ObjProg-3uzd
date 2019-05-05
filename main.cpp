@@ -62,5 +62,11 @@ int main()
     }catch(const char* msg){
     cout << msg << endl;
     }
+
+    Studentas a;
+    a.setVardas("SIMAS");
+    cout << a << endl;
+
+
     return 0;
 }

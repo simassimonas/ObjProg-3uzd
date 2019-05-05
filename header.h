@@ -17,22 +17,34 @@
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector; using std::deque; using std::list;
 
-class Studentas {
-private:
-  string vardas;
-  string pavarde;
+class Zmogus {
+protected:
+    string vardas;
+    string pavarde;
+    Zmogus(string v = "", string p = "") : vardas(v), pavarde(p) { }
+public:
+    virtual void niekoNereiskianti() = 0;
+    void setVardas(string vard) { vardas = vard;}
+	void setPavarde(string pav) { pavarde = pav;}
+    inline string getVardas() const { return vardas;}
+    inline string getPavarde() const { return pavarde;}
+};
+
+class Studentas : public Zmogus {
+protected:
   vector<double> nd;
   double egz;
   double galutinis;
 public:
-    Studentas() : egz(0), galutinis(0), vardas(" "), pavarde(" ") { }  // default konstruktorius
-    inline string getVardas() const { return vardas;}
-    inline string getPavarde() const { return pavarde;}
+    virtual void niekoNereiskianti(){};
+    Studentas(string v = "", string p = "", double eg = 0, double gal = 0) : Zmogus(v, p), egz(eg), galutinis(gal) { }  // default konstruktorius
+    Studentas(Studentas&& a) : Zmogus(a.vardas, a.pavarde), egz{a.egz}, nd{std::move(a.nd)} {};
+    Studentas(const Studentas& a);
     inline double getGalutinis() const { return galutinis;}
     inline double getEgz() const { return egz;}
     const vector<double>& getNd() const {return nd;}
-    void setVardas(string v) {vardas=v;}
-    void setPavarde(string p) {pavarde=p;}
+    //void setVardas(string v) {vardas=v;}
+    //void setPavarde(string p) {pavarde=p;}
     void pushNd(double n) {nd.push_back(n);}
     void setEgz();
     void setEgz(double a);
@@ -42,9 +54,7 @@ public:
     friend std::istream& operator>>(std::istream& in, Studentas& a);
     bool operator==(const Studentas& a);
     bool operator!=(const Studentas& a);
-    Studentas(const Studentas& a);
     Studentas& operator=(const Studentas& a);
-    Studentas(Studentas&& a) : vardas{a.vardas}, pavarde{a.pavarde}, egz{a.egz}, nd{std::move(a.nd)} {};
 };
 
 
