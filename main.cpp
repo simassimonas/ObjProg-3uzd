@@ -5,7 +5,7 @@
 int main()
 {
     //PASIRINKTI KIEK IRASU
-    int kiekIrasu=100000;
+    int kiekIrasu=1000;
     generavimasFailo(kiekIrasu);
 
     //LAIKO SKAICIAVIMAS
@@ -62,10 +62,6 @@ int main()
     }catch(const char* msg){
     cout << msg << endl;
     }
-
-    Studentas a;
-    a.setVardas("SIMAS");
-    cout << a << endl;
 
 
     return 0;

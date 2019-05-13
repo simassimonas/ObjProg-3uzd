@@ -49,6 +49,7 @@ void Studentas::setGalutinis(){
         vid=suma/nd.size();
     }
     galutinis = 0.4*vid + 0.6*egz;
+    //cout << galutinis << endl;
 }
 
 void Studentas::setGalutinis(double a){
@@ -74,7 +75,9 @@ std::ostream& operator<<(std::ostream& out, const Studentas& a){
     for(int i=0; i<a.nd.size(); i++){
         out << a.nd[i] << " ";
     }
-    out << "Egz.: " << a.egz << " Galutinis: " << a.galutinis;
+    Studentas temp=a;
+    temp.setGalutinis();
+    out << "Egz.: " << temp.egz << " Galutinis: " << temp.galutinis;
     return out;
 }
 
@@ -132,4 +135,5 @@ void rusiavimasSuPartition(vector<Studentas> &studentai){
     for (auto i=it; i!=studentai.end(); i++){
         ffout << *i << endl;
     }
+
 }

@@ -14,6 +14,7 @@
 #include <deque>
 #include <list>
 #include <algorithm>
+#include <iomanip>
 
 using std::cout; using std::endl; using std::cin; using std::string; using std::vector; using std::deque; using std::list;
 
@@ -37,14 +38,12 @@ protected:
   double galutinis;
 public:
     virtual void niekoNereiskianti(){};
-    Studentas(string v = "", string p = "", double eg = 0, double gal = 0) : Zmogus(v, p), egz(eg), galutinis(gal) { }  // default konstruktorius
+    Studentas(string v = "", string p = "", double eg = 0, double gal = 0) : Zmogus(v, p), egz(eg), galutinis(gal) { nd.clear(); }  // default konstruktorius
     Studentas(Studentas&& a) : Zmogus(a.vardas, a.pavarde), egz{a.egz}, nd{std::move(a.nd)} {};
     Studentas(const Studentas& a);
     inline double getGalutinis() const { return galutinis;}
     inline double getEgz() const { return egz;}
     const vector<double>& getNd() const {return nd;}
-    //void setVardas(string v) {vardas=v;}
-    //void setPavarde(string p) {pavarde=p;}
     void pushNd(double n) {nd.push_back(n);}
     void setEgz();
     void setEgz(double a);
