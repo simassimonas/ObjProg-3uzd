@@ -1,0 +1,379 @@
+\subsection*{Programos paleidimas naudojant {\ttfamily G\+NU C++ Compiler}}
+
+{\bfseries{Tiesiog per terminala}}
+\begin{DoxyItemize}
+\item {\ttfamily g++ -\/o run main.\+cpp}
+\item {\ttfamily ./run}
+\end{DoxyItemize}
+
+{\bfseries{Su Makefile}}
+
+Programos sudarymas\+:
+\begin{DoxyItemize}
+\item {\ttfamily make}
+\end{DoxyItemize}
+
+Sudarytu failu istrynimas\+:
+\begin{DoxyItemize}
+\item {\ttfamily clean}
+\end{DoxyItemize}
+
+{\bfseries{Po v0.\+3}}
+
+Programos sudarymas\+:
+\begin{DoxyItemize}
+\item {\ttfamily make}
+\end{DoxyItemize}
+
+functions.\+cpp failo sukompiliavimas\+:
+\begin{DoxyItemize}
+\item {\ttfamily fun}
+\end{DoxyItemize}
+
+Sudarytu failu istrynimas\+:
+\begin{DoxyItemize}
+\item {\ttfamily clean}
+\end{DoxyItemize}
+
+\subsection*{Versiju istorija}
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.1}{\texttt{ v0.\+1}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item Pirmine programos versija
+\item .gitignore failas
+\item Makefile
+\end{DoxyItemize}
+
+{\bfseries{Pastebejimas}}
+
+Esant tokiam kodui, ciklas veiks, kol ivedami int\textquotesingle{}ai ir tarkim ivedus raide, jis sustos ir nenuskaitys reiksmes, taciau ivedus float\textquotesingle{}a, pvz., 2.\+3 ciklas sustos, bet pries tai nuskaitys reiksme, ja suapvalins iki 2 ir isves i ekrana
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{int x;}
+\DoxyCodeLine{    while(cin >> x) \{}
+\DoxyCodeLine{    cout << x << endl;}
+\DoxyCodeLine{    \}}
+\end{DoxyCode}
+
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.1.1}{\texttt{ v0.\+1.\+1}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item cmasyvas.\+cpp file\textquotesingle{}as, kuriame n.\+d rezultatai saugomi ne vectoriuje, o masyve
+\end{DoxyItemize}
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.2}{\texttt{ v0.\+2}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item Antrine programos versija
+\item duom.\+txt failas
+\end{DoxyItemize}
+
+Pirmas skaicius nurodo, kiek bus studentu, antras skaicius nurodo, kiek bus n.\+d pazymiu, o kiekvienos eilutes paskutinis skaitmuo yra egzamino rezultatas
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{5 3}
+\DoxyCodeLine{vardas1 vardas2 3 6 8 3}
+\DoxyCodeLine{vardas2 vardas2 5 7 3 1}
+\DoxyCodeLine{vardas3 vardas2 1 6 10 6}
+\DoxyCodeLine{vardas4 vardas4 6 4 1 10}
+\DoxyCodeLine{vardas5 vardas5 7 4 2 7}
+\end{DoxyCode}
+
+
+{\bfseries{Papildyta}}
+\begin{DoxyItemize}
+\item R\+E\+A\+D\+M\+E.\+md failas
+\end{DoxyItemize}
+
+{\bfseries{Pastebejimas}}
+
+Deja, laiku nespejau padaryti vardu rusiavimo ir parasyti tvarkingu komentaru, bet tai padarysiu su kitu commitu arba blogiausiu atveju kitu releas\textquotesingle{}u.
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.2.1}{\texttt{ v0.\+2.\+1}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item Pridėtas studentų rūšiavimas pagal vardus
+\end{DoxyItemize}
+
+{\bfseries{Papildyta}}
+\begin{DoxyItemize}
+\item Patobulintas nuskaitymas is failo
+\end{DoxyItemize}
+
+Nebereikia pirmu dvieju skaiciu, nurodanciu, kiek bus studentu ir kiek n.\+d pazymiu jie tures. Dabar kiekvienas studentas gali tureti skirtinga n.\+d pazymiu kieki, o paskutinis skaicius nurodo egzamino rezultata
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{vardas4 vardas 3 6 8 3 6 }
+\DoxyCodeLine{vardas3 vardas 5 7 1 4}
+\DoxyCodeLine{vardas1 vardas 1 6 10 6 2 6 4 }
+\DoxyCodeLine{vardas5 vardas 6 4 5}
+\DoxyCodeLine{vardas2 vardas 7 4 2 7}
+\end{DoxyCode}
+ \subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.3}{\texttt{ v0.\+3}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item exception handling
+\item header ir funkciju failai
+\end{DoxyItemize}
+
+{\bfseries{Papildyta}}
+\begin{DoxyItemize}
+\item updated makefile
+\end{DoxyItemize}
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.4}{\texttt{ v0.\+4}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item Ketvirta programos versija
+\item galimybe generuoti atsitiktinius studentu sarasu failus
+\item studentu rusiavimas i dvi grupes ir isvedimas i skirtingus failus (vargsiukai ir kietakai)
+\item programos veikimo laiko matavimas
+\end{DoxyItemize}
+
+{\bfseries{Programos veikimo laiko testavimas generuojant skirtingo dydzio duomenu failus}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Trukmė   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Trukmė   }\\\cline{1-2}
+\endhead
+10  &3ms   \\\cline{1-2}
+100  &10ms   \\\cline{1-2}
+1000  &42ms   \\\cline{1-2}
+10000  &308ms   \\\cline{1-2}
+100000  &2930ms   \\\cline{1-2}
+1000000  &30431ms   \\\cline{1-2}
+\end{longtabu}
+
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5}{\texttt{ v0.\+5}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item pridetos persidengiancios funkcijos, todel skaiciavimus galima atlikti su vector, deque ir list tipo konteineriais
+\end{DoxyItemize}
+
+{\bfseries{Programos veikimo laiko testavimas naudojant vienodo dydzio duomenu failus, bet skirtingo tipo konteinerius}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Konteineris  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000irašų  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 500000irašų   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Konteineris  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000irašų  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 500000irašų   }\\\cline{1-3}
+\endhead
+\PBS\centering Vector  &\PBS\centering 2181ms  &\PBS\centering 10901ms   \\\cline{1-3}
+\PBS\centering Deque  &\PBS\centering 2267ms  &\PBS\centering 11592ms   \\\cline{1-3}
+\PBS\centering List  &\PBS\centering 121340ms  &\PBS\centering error   \\\cline{1-3}
+\end{longtabu}
+
+
+{\ttfamily sitoj versijoje blogai padaryta su list konteineriu, v0.\+5.\+1 pataisyta}
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v0.5.1}{\texttt{ v0.\+5.\+1}}}
+
+{\bfseries{Papildyta}}
+\begin{DoxyItemize}
+\item buvau pridares nesamoniu su list konteineriu, todel skaiciavimai truko neadekvaciai ilgai, dabar viskas sutvarkyta
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Konteineris  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000irašų  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 500000irašų   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Konteineris  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 100000irašų  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 500000irašų   }\\\cline{1-3}
+\endhead
+\PBS\centering List  &\PBS\centering 2136ms  &\PBS\centering 10730ms   \\\cline{1-3}
+\end{longtabu}
+
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v1.0}{\texttt{ v1.\+0}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item antra startegija
+\item skaiciavimas su std\+::partition algoritmu
+\end{DoxyItemize}
+
+{\bfseries{Programos veikimo laiko testavimas naudojant skirtingo dydzio duomenu failus ir skirtingas strategijas}}
+
+{\bfseries{Vector}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endhead
+\PBS\centering 1000  &\PBS\centering 26ms  &\PBS\centering 128ms   \\\cline{1-3}
+\PBS\centering 10000  &\PBS\centering 240ms  &\PBS\centering 9s   \\\cline{1-3}
+\PBS\centering 100000  &\PBS\centering 2,2s  &\PBS\centering 897s   \\\cline{1-3}
+\PBS\centering 1000000  &\PBS\centering 22s  &\PBS\centering Per ilgai   \\\cline{1-3}
+\end{longtabu}
+
+
+{\bfseries{Deque}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endhead
+\PBS\centering 1000  &\PBS\centering 24ms  &\PBS\centering 70ms   \\\cline{1-3}
+\PBS\centering 10000  &\PBS\centering 240ms  &\PBS\centering 3.\+5s   \\\cline{1-3}
+\PBS\centering 100000  &\PBS\centering 2,2s  &\PBS\centering 375s   \\\cline{1-3}
+\PBS\centering 1000000  &\PBS\centering 23s  &\PBS\centering Per ilgai   \\\cline{1-3}
+\end{longtabu}
+
+
+{\bfseries{List}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{3}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 1 strategija  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ 2 strategija   }\\\cline{1-3}
+\endhead
+\PBS\centering 1000  &\PBS\centering 30ms  &\PBS\centering 30ms   \\\cline{1-3}
+\PBS\centering 10000  &\PBS\centering 270ms  &\PBS\centering 212ms   \\\cline{1-3}
+\PBS\centering 100000  &\PBS\centering 2,1s  &\PBS\centering 2.\+1s   \\\cline{1-3}
+\PBS\centering 1000000  &\PBS\centering 22s  &\PBS\centering 21s   \\\cline{1-3}
+\end{longtabu}
+
+
+{\bfseries{Skaiciavimu trukme, pritaikius std\+::partition algoritma vectoriui}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endhead
+\PBS\centering 1000  &\PBS\centering 26ms   \\\cline{1-2}
+\PBS\centering 10000  &\PBS\centering 230ms   \\\cline{1-2}
+\PBS\centering 100000  &\PBS\centering 2,1s   \\\cline{1-2}
+\PBS\centering 1000000  &\PBS\centering 21s   \\\cline{1-2}
+\end{longtabu}
+
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-2uzd/releases/tag/v1.1}{\texttt{ P\+A\+P\+I\+L\+D\+O\+MA U\+Z\+D\+U\+O\+T\+IS}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item rask\+Minkstus() ir iterpk\+Kietus() funkcijos
+\end{DoxyItemize}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{4}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ rask\+Minkstus()  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ iterpk\+Kietus(vector)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ terpk\+Kietus(deque)   }\\\cline{1-4}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ rask\+Minkstus()  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ iterpk\+Kietus(vector)  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ terpk\+Kietus(deque)   }\\\cline{1-4}
+\endhead
+\PBS\centering 10000  &\PBS\centering 9.\+2s  &\PBS\centering 9ms  &\PBS\centering 13ms   \\\cline{1-4}
+\PBS\centering 100000  &\PBS\centering 894s  &\PBS\centering 90ms  &\PBS\centering 150ms   \\\cline{1-4}
+\end{longtabu}
+
+
+\subsubsection*{\href{https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v1.1}{\texttt{ v1.\+1}}}
+
+{\bfseries{Pridėta}}
+\begin{DoxyItemize}
+\item studento klase
+\end{DoxyItemize}
+
+{\bfseries{Skaiciavimu trukme, pritaikius std\+::partition algoritma ir vectoriu naudojant sena struct}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endhead
+\PBS\centering 10000  &\PBS\centering 230ms   \\\cline{1-2}
+\PBS\centering 100000  &\PBS\centering 2,1s   \\\cline{1-2}
+\PBS\centering 500000  &\PBS\centering 21s   \\\cline{1-2}
+\end{longtabu}
+
+
+{\bfseries{Skaiciavimu trukme, pritaikius std\+::partition algoritma ir vectoriu naudojant nauja class}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ std\+::partition   }\\\cline{1-2}
+\endhead
+\PBS\centering 10000  &\PBS\centering 430ms   \\\cline{1-2}
+\PBS\centering 100000  &\PBS\centering 4,3s   \\\cline{1-2}
+\PBS\centering 500000  &\PBS\centering 21s   \\\cline{1-2}
+\end{longtabu}
+
+
+{\bfseries{Skaiciavimu trukme, pritaikius std\+::partition algoritma, vectoriu ir naudojant nauja class bei optimization flags (sie skaiciavimai buvo atlikti ne ant Windows\textquotesingle{}u, o ant Ubuntu, todel greiciai gerokai skiriasi nuo praeitu)}}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{5}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O3   }\\\cline{1-5}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Irašų sk.  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ default  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O1  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O2  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ O3   }\\\cline{1-5}
+\endhead
+\PBS\centering 10000  &\PBS\centering 100ms  &\PBS\centering 77ms  &\PBS\centering 73ms  &\PBS\centering 71ms   \\\cline{1-5}
+\PBS\centering 100000  &\PBS\centering 1050Ms  &\PBS\centering 750ms  &\PBS\centering 750ms  &\PBS\centering 750ms   \\\cline{1-5}
+\PBS\centering 500000  &\PBS\centering 5s  &\PBS\centering 3,7s  &\PBS\centering 3,7s  &\PBS\centering 3,7s   \\\cline{1-5}
+\end{longtabu}
