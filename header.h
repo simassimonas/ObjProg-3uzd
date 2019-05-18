@@ -57,6 +57,7 @@ public:
 };
 
 
+
 class Timer {
  private:
   // per using sutrumpiname ilgus chrono bibliotekos tipus
@@ -79,5 +80,7 @@ void generavimasFailo(int);
 
 void tikrinimasBinarinio(int &);
 int tikrinimas();
+
+
 
 #endif // HEADER_H_INCLUDED

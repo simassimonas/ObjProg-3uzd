@@ -5,7 +5,7 @@
 int main()
 {
     //PASIRINKTI KIEK IRASU
-    int kiekIrasu=1000;
+    int kiekIrasu=100;
     generavimasFailo(kiekIrasu);
 
     //LAIKO SKAICIAVIMAS
