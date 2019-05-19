@@ -3,4 +3,4 @@ main: functions.o
 fun: 
 	g++ -c functions.cpp
 clean:
-rm *.o run
+	rm *.o run
