@@ -216,3 +216,10 @@ vardas2 vardas 7 4 2 7
 | 100000 | 1050Ms | 750ms | 750ms | 750ms | 
 | 500000 | 5s | 3,7s | 3,7s | 3,7s |  
 
+### [v1.2](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v1.2)
+**Pridėta**
+- Prideti operatoriu overload'ai
+
+### [v1.5](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v1.5)
+**Pridėta**
+- Sukurtos based ir derived klases
