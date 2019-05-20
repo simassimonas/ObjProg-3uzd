@@ -223,3 +223,48 @@ vardas2 vardas 7 4 2 7
 ### [v1.5](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v1.5)
 **Pridėta**
 - Sukurtos based ir derived klases
+
+### [v2.0](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v2.0)
+**Pridėta**
+- doxygen dokumentacija 
+- unit testai
+
+**GoogleTest testai**
+
+```shell
+TEST(Studentas, arTeisingasVardas) {
+	Studentas stud;
+	stud.setVardas("Simas");
+	EXPECT_EQ("Simas", stud.getVardas());
+}
+
+TEST(Studentas, arGalutinis) {
+	Studentas stud;
+	stud.setGalutinis();
+	EXPECT_EQ(0, stud.getGalutinis());
+}
+
+TEST(Studentas, arDefined) {
+	Studentas stud;
+	EXPECT_EQ(0, stud.getEgz());
+}
+```
+**GoogleTest testu rezultatai**
+
+```shell
+Running main() from e:\a\_work\1173\s\thirdparty\googletest\googletest\src\gtest_main.cc
+[==========] Running 3 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 3 tests from Studentas
+[ RUN      ] Studentas.arTeisingasVardas
+[       OK ] Studentas.arTeisingasVardas (0 ms)
+[ RUN      ] Studentas.arGalutinis
+[       OK ] Studentas.arGalutinis (0 ms)
+[ RUN      ] Studentas.arDefined
+[       OK ] Studentas.arDefined (0 ms)
+[----------] 3 tests from Studentas (4 ms total)
+
+[----------] Global test environment tear-down
+[==========] 3 tests from 1 test case ran. (7 ms total)
+[  PASSED  ] 3 tests.
+```
