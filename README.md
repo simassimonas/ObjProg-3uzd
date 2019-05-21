@@ -268,3 +268,6 @@ Running main() from e:\a\_work\1173\s\thirdparty\googletest\googletest\src\gtest
 [==========] 3 tests from 1 test case ran. (7 ms total)
 [  PASSED  ] 3 tests.
 ```
+### [v2.0](https://github.com/simassimonas/ObjProg-3uzd/releases/tag/v2.0.1)
+**Pridėta**
+- sutvarkytas makefile
